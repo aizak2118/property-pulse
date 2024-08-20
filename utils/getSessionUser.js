@@ -3,8 +3,10 @@ import { authOptions } from "./authOptions";
 
 export const getSessionUser = async () => {
   const session = await getServerSession(authOptions);
+  console.log("Server-side session:", session);
 
   if (!session || !session.user) {
+    console.log("No session or user found");
     return null;
   }
 
