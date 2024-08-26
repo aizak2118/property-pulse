@@ -2,12 +2,14 @@ import connectDB from "@/config/database";
 import Property from "@/models/Property";
 import FeaturedPropertyCard from "./FeaturedPropertyCard";
 
-const FeaturedProeprties = async () => {
+const FeaturedProperties = async () => {
   await connectDB();
 
   const properties = await Property.find({
     is_featured: true,
   }).lean();
+
+  console.log({ properties });
 
   return properties.length > 0 ? (
     <section className="bg-blue-50 px-4 pt-6 pb-10">
@@ -25,4 +27,4 @@ const FeaturedProeprties = async () => {
   ) : null;
 };
 
-export default FeaturedProeprties;
+export default FeaturedProperties;
