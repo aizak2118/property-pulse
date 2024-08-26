@@ -10,6 +10,8 @@ import UnreadMessageCount from "./UnreadMessageCount";
 
 const Navbar = () => {
   const { data: session } = useSession();
+  console.log("Client-side session:", session);
+  console.log("Authentication status:", status);
   const profileImage = session?.user?.image;
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
